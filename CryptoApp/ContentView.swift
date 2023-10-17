@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  CryptoApp
 //
-//  Created by hanbiro on 10/17/23.
+//  Created by hanbiro - ANHDUC on 10/17/23.
 //
 
 import SwiftUI
