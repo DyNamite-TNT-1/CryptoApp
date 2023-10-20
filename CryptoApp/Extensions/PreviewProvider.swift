@@ -2,7 +2,7 @@
 //  PreviewProvider.swift
 //  CryptoApp
 //
-//  Created by hanbiro on 10/17/23.
+//  Created by hanbiro - ANHDUC on 10/17/23.
 //
 
 import Foundation
@@ -19,6 +19,8 @@ extension PreviewProvider {
 class DeveloperPreview {
     static let instance = DeveloperPreview()
     private init() {}
+    
+    let homeViewModel = HomeViewModel()
     
     let coin = CoinModel(
         id: "bitcoin",
