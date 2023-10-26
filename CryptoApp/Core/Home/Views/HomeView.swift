@@ -11,29 +11,36 @@ struct HomeView: View {
     
     @EnvironmentObject private var homeViewModel: HomeViewModel
     @State var showPortfolio: Bool = false
+    private var screenWidth: Double = 0
+    
+    init() {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            self.screenWidth = windowScene.screen.bounds.size.width
+        }
+    }
     
     var body: some View {
         ZStack {
             Color.theme.background
                 .ignoresSafeArea()
             
-            GeometryReader { geometry in
-                VStack {
-                    homeHeader
-                    
-                    SearchBarView(searchText: $homeViewModel.searchText)
-                    
-                    columnTitles(geometry: geometry)
-                    
-                    if !showPortfolio {
-                        allCoinsList
-                            .transition(.move(edge: .leading))
-                    } else {
-                        portfolioCoinsList
-                            .transition(.move(edge: .trailing))
-                    }
-                    Spacer(minLength: 0)
+            VStack {
+                homeHeader
+                
+                HomeStatisticView(showPortfolio: $showPortfolio)
+                
+                SearchBarView(searchText: $homeViewModel.searchText)
+                
+                columnTitles(screenWidth: self.screenWidth)
+                
+                if !showPortfolio {
+                    allCoinsList
+                        .transition(.move(edge: .leading))
+                } else {
+                    portfolioCoinsList
+                        .transition(.move(edge: .trailing))
                 }
+                Spacer(minLength: 0)
             }
         }
     }
@@ -95,7 +102,7 @@ extension HomeView {
         .listStyle(PlainListStyle())
     }
     
-    private func columnTitles(geometry: GeometryProxy) -> some View {
+    private func columnTitles(screenWidth: Double) -> some View {
             return HStack {
                 Text("Coin")
                 Spacer()
@@ -103,7 +110,7 @@ extension HomeView {
                     Text("Holdings")
                 }
                 Text("Price")
-                    .frame(width: geometry.size.width * 0.3, height: 10, alignment: .trailing)
+                    .frame(width: screenWidth * 0.3, height: 10, alignment: .trailing)
             }
             .font(.caption)
             .foregroundColor(Color.theme.secondaryText)

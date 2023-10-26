@@ -45,8 +45,8 @@ class NetworkingManager {
             break
         case .failure(let error):
             //Have two options to print out error.
-            print(error.localizedDescription) // <- ⚠️ Don't use this!
-            
+            print(error.localizedDescription) // <- ⚠️ Don't use this for debuging!
+
 //            print(String(describing: error)) // <- ✅ Use this for debuging!
         }
     }

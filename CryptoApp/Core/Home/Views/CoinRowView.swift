@@ -11,20 +11,27 @@ struct CoinRowView: View {
     
     let coin: CoinModel
     let showHoldingColumn: Bool
+    private var screenWidth: Double = 0
+    
+    init(coin: CoinModel, showHoldingColumn: Bool) {
+        self.coin = coin
+        self.showHoldingColumn = showHoldingColumn
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            self.screenWidth = windowScene.screen.bounds.size.width
+        }
+    }
     
     var body: some View {
-        GeometryReader { geometry in
-            HStack(spacing: 0) {
-                leftColumn
-                Spacer()
-                if showHoldingColumn {
-                    centerColumn
-                }
-                rightColumn
-                    .frame(width: geometry.size.width * 0.3, alignment: .trailing)
+        HStack(spacing: 0) {
+            leftColumn
+            Spacer()
+            if showHoldingColumn {
+                centerColumn
             }
-            .font(.subheadline)
+            rightColumn
+                .frame(width: screenWidth * 0.3, alignment: .trailing)
         }
+        .font(.subheadline)
     }
 }
 

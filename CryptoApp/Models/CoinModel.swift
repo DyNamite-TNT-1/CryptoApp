@@ -11,15 +11,15 @@ import Foundation
 /*
  
  URL: https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=true&price_change_percentage=24h&locale=en
-JSON RESPONSE:
+ JSON RESPONSE:
  {
-    "id": "bitcoin",
-    "symbol": "btc",
-    "name": "Bitcoin",
-    "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-    "current_price": 28445,
-    "market_cap": 555009481705,
-    "market_cap_rank": 1,
+     "id": "bitcoin",
+     "symbol": "btc",
+     "name": "Bitcoin",
+     "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+     "current_price": 28445,
+     "market_cap": 555009481705,
+     "market_cap_rank": 1,
      "fully_diluted_valuation": 597207724503,
      "total_volume": 16024632287,
      "high_24h": 29483,
