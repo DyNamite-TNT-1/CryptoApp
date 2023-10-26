@@ -2,7 +2,7 @@
 //  CoinImageService.swift
 //  CryptoApp
 //
-//  Created by hanbiro on 10/24/23.
+//  Created by hanbiro - ANHDUC on 10/24/23.
 //
 
 import Foundation
@@ -28,10 +28,8 @@ class CoinImageService {
     private func getCoinImage() {
         if let savedImage = fileManager.getImage(imageName: self.imageName, folderName: self.folderName) {
             image = savedImage
-            print("Retrieved image from File Manager!")
         } else {
             downloadCoinImage()
-            print("Downloading image now")
         }
     }
     
